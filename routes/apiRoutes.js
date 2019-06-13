@@ -1,10 +1,18 @@
 var db = require("../models");
+var footballApi = require("../apis/footballApi")
 
 module.exports = function(app) {
   // Get all examples
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
+    });
+  });
+
+  // Player Id
+  app.get("/api/football/player/:playerId", function(req, res) {
+    footballApi.getPlayer(req.params.playerId, function(results) {
+      res.json(results);
     });
   });
 
