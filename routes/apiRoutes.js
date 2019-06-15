@@ -14,7 +14,7 @@ module.exports = function (app) {
     footballApi.getLeague(req.params.country, req.params.season, function (results) {
       var promises = [];
 
-      results.api.leagues.forEach(function (liga) {
+      results.api.leagues.forEach(function(liga) {
         var promise = db.League.create({
           league_id: liga.league_id,
           name: liga.name,
