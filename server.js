@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var unirest = require('unirest');
 
 var db = require("./models");
 
@@ -33,6 +34,8 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+// Code for Node.js
+
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
@@ -43,5 +46,7 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
+
+
 
 module.exports = app;
