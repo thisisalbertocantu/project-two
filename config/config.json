@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "Junio230415",
+    "password": "root",
     "database": "fifainfo",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Junio230415",
+    "password": "root",
     "database": "fifainfo",
     "host": "localhost",
     "dialect": "mysql",
