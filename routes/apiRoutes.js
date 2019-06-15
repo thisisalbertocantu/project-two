@@ -12,7 +12,27 @@ module.exports = function (app) {
   // League Id
   app.get("/api/football/country/:country/:season", function (req, res) {
     footballApi.getLeague(req.params.country, req.params.season, function (results) {
-      res.json(results);
+      var promises = [];
+
+      results.api.leagues.forEach(function (liga) {
+        var promise = db.League.create({
+          league_id: liga.league_id,
+          name: liga.name,
+          country: liga.country,
+          country_code: liga.country_code,
+          season: liga.season,
+          logo: liga.logo,
+          flag: liga.flag,
+        })
+        promises.push(promise);
+      })
+      Promise.all(promises).then(function (resultados) {
+        res.json(resultados);
+      })
+        .catch(function (error) {
+          res.send(error);
+        })
+
     });
   });
 
