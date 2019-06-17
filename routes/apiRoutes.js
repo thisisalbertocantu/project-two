@@ -36,6 +36,33 @@ module.exports = function (app) {
     });
   });
 
+  // Get the Teams Ids
+  app.get("/api/football/teams/league/:leagueId", function (req, res) {
+    footballApi.getTeams(req.params.leagueId, function (results) {
+      var promisesTeam = [];
+
+      results.api.teams.forEach(function (team) {
+        var promiseTeam = db.Team.create({
+          team_id: team.team_id,
+          name: team.name,
+          logo: team.logo,
+          country: team.country,
+          founded: team.founded,
+          venue_name: team.venue_name,
+        })
+        promisesTeam.push(promiseTeam);
+      })
+      Promise.all(promisesTeam).then(function (resultados) {
+        res.json(resultados);
+      })
+        .catch(function (error) {
+          res.send(error);
+        })
+
+    });
+  });
+
+
   // Player Id
   app.get("/api/football/player/:playerId", function (req, res) {
     footballApi.getPlayer(req.params.playerId, function (results) {
