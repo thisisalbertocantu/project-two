@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <th>País</th>
+      <th>Liga</th>
+    </tr>
+
+    {{#each listaLigas}}
+    <tr>
+      <td>{{this.country}}</td>
+      <td>{{this.name}}</td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
