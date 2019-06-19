@@ -101,3 +101,14 @@ $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);  */
 
 
+$(function() {
+
+  $("#mexico").on("click", function(event){
+
+    $.ajax("/ligas/mexico/2018", {
+      type: GET
+    }).then(function() {
+      console.log("MexicanLeague")
+    })
+  })
+})

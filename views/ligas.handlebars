@@ -1,16 +1,114 @@
-<table class="table table-striped">
+<ul class="nav nav-pills">
+
+  
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <img class="logo" src="/img/logo.png" alt="">
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Leagues
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="http://localhost:3000/ligas/mexico/2018"><img class="flags" id="mexico" src="/img/mexico.png" alt="">Mexico</a></li>
+          <li><a href="http://localhost:3000/ligas/spain/2018"><img class="flags" id="spain" src="/img/spain.png" alt="">Spain</a></li>
+          <li><a href="http://localhost:3000/ligas/england/2018"><img class="flags" id="england" src="/img/england.png" alt="">England</a></li>
+          <li><a href="http://localhost:3000/ligas/italy/2018"><img class="flags" id="italy" src="/img/italy.png" alt="">Italy</a></li>
+          <li><a href="http://localhost:3000/ligas/germany/2018"><img class="flags" id="germany" src="/img/germany.png" alt="">Germany</a></li>
+          <li><a href="http://localhost:3000/ligas/france/2018"><img class="flags" id="france" src="/img/france.png" alt="">France</a></li>
+          <li><a href="http://localhost:3000/ligas/netherlands/2018"><img class="flags" id="netherlands" src="/img/netherlands.png" alt="">Netherlands</a></li>
+
+        </ul>
+      </li>
+      <li id="players"><a href="#">Players</a></li>
+      <li id="matches"><a href="#">Matches</a></li>
+      <li id="favorites"><a href="#">Favorites</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <table class="table table-striped">
   <tbody>
     <tr>
-      <th>País</th>
-      <th>Liga</th>
+      <th>Country</th>
+      <th>Logo</th>
+      <th>League</th>
+      <th>Season</th>
     </tr>
 
     {{#each listaLigas}}
     <tr>
       <td>{{this.country}}</td>
-      <td>{{this.name}}</td>
+      <td><a href=""><img src="{{this.logo}}" alt="flag"></a></td>
+      <td><a href="">{{this.name}}</a></td>
+      <td>{{this.season}}</td>
     </tr>
     {{/each}}
 
   </tbody>
 </table>
+</div>
+<footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            
+
+            <img class="logo" src="/img/logo.png" alt="logoImage">
+
+            <p class="footer-links">
+                <a id="home" href="#" >Home</a>
+                ·
+                <a href="#">About</a>
+                ·
+                <a href="contact.html">Contact</a>
+            </p>
+
+            <p class="footer-company-name">Football Stats Manager &copy; 2019 All Rights Reserved</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Av. Eugenio Garza Sada 2501 Sur </span> Monterrey, Mexico</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+52 8110 8000</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@footballstatsmanager.com">support@footballstatsmanager.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About the Project</span>
+                    Want to know the latest stats for all the important football leagues in the world?<br>
+                    Football Stats Manager share in a simple yet effective way stats for leagues, players and matches.
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="" target="_blank"><i class="fa fa-github"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                
+            </div>
+
+        </div>
+
+    </footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+
