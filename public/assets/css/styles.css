@@ -18,6 +18,7 @@ img {
 	height: 80px;
 }
 
+
 nav {
   height: 70px
 }
@@ -35,6 +36,7 @@ nav {
 .container {
   margin-top: 80px;
   margin-bottom: 100px;
+  width: 1000px;
 }
 
 

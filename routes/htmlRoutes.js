@@ -21,15 +21,23 @@ module.exports = function (app) {
       var promises = [];
 
       apiListaLigas.forEach(function (liga) {
-        var promise = db.League.create({
-          league_id: liga.league_id,
-          name: liga.name,
-          country: liga.country,
-          country_code: liga.country_code,
-          season: liga.season,
-          logo: liga.logo,
-          flag: liga.flag,
-        });
+        var promise = db.League.findOne({where: {league_id:liga.league_id}})
+        .then(function(resultado){
+          if(resultado){
+            return resultado
+          } else {
+            return db.League.create({
+              league_id: liga.league_id,
+              name: liga.name,
+              country: liga.country,
+              country_code: liga.country_code,
+              season: liga.season,
+              logo: liga.logo,
+              flag: liga.flag,
+            });
+          }
+        })
+          
 
         promises.push(promise);
       });
@@ -51,10 +59,45 @@ module.exports = function (app) {
 
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/equipos/:idLiga", function (req, res) {
+    console.log("::: Lista de Equipos:: " + req.params.idLiga);
+
+    footballApi.getTeams(req.params.idLiga, function (apiListaEquipos) {
+      console.log(apiListaEquipos.api.teams);
+      var promises = [];
+
+      apiListaEquipos.api.teams.forEach(function (equipo) {
+        var promise = db.Team.findOne({where: {team_id:equipo.team_id}})
+        .then(function(resultado){
+          if(resultado){
+            return resultado
+          } else {
+            return db.Team.create({
+              team_id: equipo.team_id,
+              name: equipo.name,
+              logo: equipo.logo,
+              country: equipo.country,
+              founded: equipo.founded,
+              venue_name: equipo.venue_name,
+            });
+          }
+        })
+          
+
+        promises.push(promise);
+      });
+
+      // Esperar que todas las promesas se cumplan
+      Promise.all(promises).then(function (resultados) {
+        // Renderizar vista de lista de ligas
+        res.render("equipos", {
+          listaEquipos: apiListaEquipos.api.teams
+        });
+      }).catch(function (error) {
+        // Renderizar vista de error
+        res.render("index", {
+          error: error
+        });
       });
     });
   });
