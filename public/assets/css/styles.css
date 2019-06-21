@@ -1,31 +1,46 @@
 body {
-  background-color: rgb(16, 185, 16);
+  background-color: rgb(253, 250, 253);
   
 }
 
 .container {
   background-color:white;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
 img {
-	width: 65px;
+	width: 60px;
 	height: 55px;
 }
 
 .logo {
-	width: 180px;
-	height: 80px;
+	width: 60px;
+	height:60px;
+	margin: 0px 10px 5px 10px;
+	
+}
+
+#slogan {
+	color: white;
+	font-size: 20px;
+	margin-right: 15px;
+	font-family: 'Hind Siliguri', sans-serif;
+}
+
+#slogan2 {
+	color: red;
+}
+
+#title {
+	margin-top: 5px;
+	
 }
 
 
-nav {
-  height: 70px
-}
-
-.active, .dropdown, #players, #matches, #favorites {
-  font-size: 20px;
-  margin-top: 8px
+#home, .dropdown, #players, #matches, #favorites {
+  font-size: 17px;
+  margin-top: 10px;
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
 .flags {
@@ -39,6 +54,30 @@ nav {
   width: 1000px;
 }
 
+.table {
+	padding: 10px;
+	
+}
+
+
+/*TABLE*/
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+bottom: .5em;
+}
+
+
+/*FOOTER*/
+
 
 .footer-distributed{
 	background-color: #292c2f;
@@ -47,7 +86,7 @@ nav {
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
+	padding: 20px 30px;
 	margin-top: 30px
 }
 
@@ -56,6 +95,7 @@ nav {
 .footer-distributed .footer-right{
 	display: inline-block;
 	vertical-align: top;
+	margin-bottom:10px;
 }
 
 /* Footer left */
@@ -207,3 +247,19 @@ nav {
 	}
 
 }
+
+@media (max-width: 1000px) {
+
+	.container {
+		width: 400px;
+	}
+
+	#home, .dropdown, #players, #matches, #favorites {
+		text-align: center;
+	}
+	
+	li {
+		text-align: center
+	}
+}
+
