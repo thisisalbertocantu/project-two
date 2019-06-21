@@ -24,7 +24,7 @@ module.exports = function (app) {
         var promise = db.League.findOne({where: {league_id:liga.league_id}})
         .then(function(resultado){
           if(resultado){
-            return resultado
+            return resultado;
           } else {
             return db.League.create({
               league_id: liga.league_id,
@@ -70,7 +70,7 @@ module.exports = function (app) {
         var promise = db.Team.findOne({where: {team_id:equipo.team_id}})
         .then(function(resultado){
           if(resultado){
-            return resultado
+            return resultado;
           } else {
             return db.Team.create({
               team_id: equipo.team_id,
@@ -100,6 +100,43 @@ module.exports = function (app) {
         });
       });
     });
+  });
+
+
+  // Load example page and pass in an example by id
+  app.get("/equipos/players/:teamId", function (req, res) {
+      console.log("::: Lista de Jugadores:: " + req.params.teamId);
+      footballApi.getPlayers(req.params.teamId, function (listaJugadores) {
+          var promises = [];
+          listaJugadores.api.players.forEach(function (player) {
+            console.log(player);
+            var promise = db.Player.findOne({where: {player_id: player.player_id}})
+                .then(function (resultado) {
+                    if (resultado){
+                      return resultado;
+                    } else{
+                      return db.Player.create({
+                          player_id: player.player_id,
+                          name: player.player_name,
+                          age: player.age,
+                          team_id: player.team_id,
+                          team_name: player.team_name
+                      });
+                    }
+                })
+              promises.push(promise);
+          });
+
+          Promise.all(promises).then(function (resultados) {
+            res.render("players", {
+              listaJugadores: listaJugadores.api.players
+            });
+          }).catch(function (error) {
+              res.render("index",{
+                error:error
+              });
+          });
+      });
   });
 
   // Render 404 page for any unmatched routes

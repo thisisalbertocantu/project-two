@@ -11,9 +11,9 @@
 
     {{#each listaEquipos}}
     <tr>
-      <td>{{this.name}}</td>
+      <td><a href="/equipos/players/{{this.team_id}}">{{this.name}}</a></td>
       <td>{{this.country}}</td>
-      <td><a href="#"><img src="{{this.logo}}" alt="flag"></a></td>
+      <td><a href="/equipos/players/{{this.team_id}}"><img src="{{this.logo}}" alt="flag"></a></td>
 
       <td>{{this.venue_name}}</td>
     </tr>

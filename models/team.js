@@ -8,5 +8,6 @@ module.exports = function (sequelize, DataTypes) {
         venue_name: DataTypes.TEXT,
 
     });
+
     return Team;
 };

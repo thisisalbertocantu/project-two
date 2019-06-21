@@ -34,6 +34,16 @@ module.exports = {
                 console.log(result.status, result.headers, result.body);
                 callback(result.body);
             });
+    },
+
+    getPlayers: function (teamId, callback) {
+        unirest.get("https://api-football-v1.p.rapidapi.com/v2/players/team/" + teamId)
+            .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
+            .header("X-RapidAPI-Key", "b6d0b623famsh8fed9f792245bb6p179243jsn43b948a26796")
+            .end(function (result) {
+                console.log(result.status, result.headers, result.body);
+                callback(result.body);
+            });
     }
 
 };
