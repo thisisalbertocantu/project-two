@@ -1,0 +1,21 @@
+
+<div class="container">
+  <table class="table table-striped">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Age</th>
+    </tr>
+
+    {{#each listaJugadores}}
+    <tr>
+      <td><a href="/equipos/players/{{this.player_id}}">{{this.player_name}}</a></td>
+      <td>{{this.team_name}}</td>
+      <td>{{this.age}}</td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+</div>

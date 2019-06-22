@@ -9,7 +9,7 @@ module.exports = function (app) {
     });
   });
 
-  // League Id
+  // Get Leagues
   app.get("/api/football/country/:country/:season", function (req, res) {
     footballApi.getLeague(req.params.country, req.params.season, function (results) {
       var promises = [];
@@ -36,7 +36,7 @@ module.exports = function (app) {
     });
   });
 
-  // Get the Teams Ids
+  // Get Teams
   app.get("/api/football/teams/league/:leagueId", function (req, res) {
     footballApi.getTeams(req.params.leagueId, function (results) {
       var promisesTeam = [];
@@ -62,8 +62,14 @@ module.exports = function (app) {
     });
   });
 
+  // Get Players of Team
+  app.get("/api/football/team/players/:teamId", function (req, res) {
+        footballApi.getPlayers(req.params.teamId, function (results) {
+            res.json(results);
+        });
+    });
 
-  // Player Id
+  // Get Player
   app.get("/api/football/player/:playerId", function (req, res) {
     footballApi.getPlayer(req.params.playerId, function (results) {
       res.json(results);

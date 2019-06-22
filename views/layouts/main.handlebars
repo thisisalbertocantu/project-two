@@ -13,6 +13,7 @@
   <link href="css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
   <link href="css/mdb.min.css">
+  <script src="/js/app.js"></script>
   <link rel="stylesheet" href="/assets/css/styles.css">
 
   <link href="css/addons/datatables.min.css">
@@ -26,7 +27,7 @@
      
     </div>
     <ul class="nav navbar-nav">
-      <li id="title"><img class="logo" src="/img/logo4.png" alt="Football Stats Manager"><span id="slogan">Football<span id="slogan2">Stats</span>Manager</span> 
+      <li id="title"><img id="header-logo" class="logo" src="/img/logo4.png" alt="Football Stats Manager"><span id="slogan">Football<span id="slogan2">Stats</span>Manager</span>
       <li class="" id="home"><a href="#">Home</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Leagues
@@ -543,7 +544,7 @@
       </tr>
     </tfoot>
   </table>
-  
+
 
   <footer class="footer-distributed">
         <div class="footer-left">
@@ -584,11 +585,9 @@
             </div>
         </div>
     </footer>
-  <!--External Javascript-->
-  
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="/js/index.js"></script>
 
+  <!--External Javascript-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script  src="js/popper.min.js"></script>
@@ -596,11 +595,13 @@
   <script  src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script  src="js/mdb.min.js"></script>
-
   <script  src="js/addons/datatables.min.js"></script>
 
   <script>
     $(document).ready(function () {
+
+
+
     $('#dtOrderExample').DataTable({
     "order": [[ 3, "desc" ]]
     });
