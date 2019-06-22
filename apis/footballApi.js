@@ -20,7 +20,6 @@ module.exports = {
             .header("X-RapidAPI-Key", "7c6e531f04msh7480ebf90c3b94cp19b74djsnd1ef57082c8c")
             .end(function (result) {
                 console.log(result.status, result.headers, result.body);
-                
                 // Ejecutar el callback con la lista de ligas como prámetro
                 callback(result.body.api.leagues);
             });
