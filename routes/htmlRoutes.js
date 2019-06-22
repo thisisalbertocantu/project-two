@@ -109,18 +109,39 @@ module.exports = function (app) {
       footballApi.getPlayers(req.params.teamId, function (listaJugadores) {
           var promises = [];
           listaJugadores.api.players.forEach(function (player) {
-            console.log(player);
-            var promise = db.Player.findOne({where: {player_id: player.player_id}})
-                .then(function (resultado) {
+            console.log("-- Player --")
+            var promise = db.Player.findOne({
+                where: {
+                      player_id: player.player_id,
+                      team_id: player.team_id
+                    }
+            }).then(function (resultado) {
                     if (resultado){
                       return resultado;
                     } else{
                       return db.Player.create({
                           player_id: player.player_id,
-                          name: player.player_name,
-                          age: player.age,
+                          player_name: player.player_name,
                           team_id: player.team_id,
-                          team_name: player.team_name
+                          team_name: player.team_name,
+                          number: player.number,
+                          age: player.age,
+                          position: player.position,
+                          injured: player.injured,
+                          rating: player.rating,
+                          captain: player.captain,
+                          shotstotal: player.shots.total,
+                          shots_on: player.shots.on,
+                          goals_total: player.goals.total,
+                          passes_total: player.passes.total,
+                          passes_accuracy: player.passes.accuracy,
+                          tackles_total: player.tackles.total,
+                          duels_total: player.duels.total,
+                          dribbles_success: player.dribbles.attempts,
+                          fouls_drawn: player.fouls.drawn,
+                          cards_yellow: player.cards.yellow,
+                          cards_yellowred: player.cards.yellowred,
+                          cards_red: player.cards.red
                       });
                     }
                 })
@@ -128,6 +149,7 @@ module.exports = function (app) {
           });
 
           Promise.all(promises).then(function (resultados) {
+              console.log(listaJugadores)
             res.render("players", {
               listaJugadores: listaJugadores.api.players
             });
@@ -138,6 +160,11 @@ module.exports = function (app) {
           });
       });
   });
+
+  //
+  app.get("/players/:playerId", function (req, res) {
+      console.log("::: Jugador :: " + req.params.playerId);
+  }); // app.get
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {

@@ -5,14 +5,26 @@
     <tr>
       <th>Name</th>
       <th>Team</th>
+        <th>Number</th>
       <th>Age</th>
+        <th>Position</th>
+        <th>Injured</th>
+        <th>Rating</th>
+        <th>Captain</th>
+        <th>Shots On</th>
     </tr>
 
     {{#each listaJugadores}}
     <tr>
       <td><a href="/equipos/players/{{this.player_id}}">{{this.player_name}}</a></td>
       <td>{{this.team_name}}</td>
+        <td>{{this.number}}</td>
       <td>{{this.age}}</td>
+        <td>{{this.position}}</td>
+        <td>{{this.injured}}</td>
+        <td>{{this.rating}}</td>
+        <td>{{this.captain}}</td>
+        <td>{{this.shotstotal}}</td>
     </tr>
     {{/each}}
 
