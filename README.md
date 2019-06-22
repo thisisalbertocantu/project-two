@@ -2,16 +2,12 @@
 
 Football Stats Manager
 
-## Getting Started
-
-
 
 ## How does it works?
-
+It's an application created to help Fifa Players or Football statistics analysts, to retrieve information from international leagues, teams and players around the world.
  
-
 ## How can I use it?
-
+You can either download the repository or go to the [Heroku project](https://project-two-bootcamp.herokuapp.com/)
 
 
 ## Built With
