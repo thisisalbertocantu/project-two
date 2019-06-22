@@ -149,12 +149,12 @@ module.exports = function (app) {
           });
 
           Promise.all(promises).then(function (resultados) {
-              console.log(listaJugadores)
+            console.log(listaJugadores.api.players)
             res.render("players", {
               listaJugadores: listaJugadores.api.players
             });
           }).catch(function (error) {
-              res.render("index",{
+              res.render("index", {
                 error:error
               });
           });
