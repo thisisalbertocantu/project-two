@@ -12,6 +12,18 @@
         <th>Rating</th>
         <th>Captain</th>
         <th>Shots On</th>
+        <th>Shots Total</th>
+        <th>Goals Total</th>
+        <th>Passes Total</th>
+        <th>Passes Accuracy</th>
+        <th>Tackles Total</th>
+        <th>Duels Total</th>
+        <th>Dribbles Attempts</th>
+        <th>Fouls Drawn</th>
+        <th>Cards Yellow</th>
+        <th>Cards YellowRed</th>
+        <th>Cards Red</th>
+
     </tr>
 
     {{#each listaJugadores}}
@@ -24,7 +36,19 @@
         <td>{{this.injured}}</td>
         <td>{{this.rating}}</td>
         <td>{{this.captain}}</td>
-        <td>{{this.shotstotal}}</td>
+        <td>{{this.shots.on}}</td>
+        <td>{{this.shots.total}}</td>
+        <td>{{this.goals.total}}</td>
+        <td>{{this.passes.total}}</td>
+        <td>{{this.passes.accuracy}}</td>
+        <td>{{this.tackles.total}}</td>
+        <td>{{this.duels.total}}</td>
+        <td>{{this.dribbles.attempts}}</td>
+        <td>{{this.fouls.drawn}}</td>
+        <td>{{this.cards.yellow}}</td>
+        <td>{{this.cards.yellowred}}</td>
+        <td>{{this.cards.red}}</td>
+
     </tr>
     {{/each}}
 
